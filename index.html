@@ -1,13 +1,17 @@
-
-
 <!DOCTYPE html>
 <html>
   <head>
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Flashcards</title>
     <style>
+      body {
+        padding: 20px;
+        background-color: #f6eeee;
+      }
+
       table, td, th {
         border: 1px solid black;
       }
@@ -21,9 +25,9 @@
       }
 
       #viewer {
-        width: 300px;
+        width: 25em;
         margin-bottom: 10px;
-        padding: 20px;
+        padding: 2em;
 
         color: black;
         background-color: #999;
@@ -58,7 +62,7 @@
           })
           return (
             <div>
-              <h2>Card Editor</h2>
+              <h2>Flashcard Editor</h2>
               <table>
                 <thead>
                   <tr>
@@ -117,9 +121,9 @@
               return (
                 <div>
                   <div id="viewer">
-                    <h1>
+                    <h3>
                       {this.props.cards[this.state.currentCard].front}
-                    </h1>
+                    </h3>
                   </div>
                   <button onClick={this.previous} disabled={this.state.currentCard <= 0}>Previous card</button>
                   <button onClick={this.cardFlip}>Flip</button>
@@ -132,9 +136,9 @@
               return (
                 <div>
                   <div id="viewer">
-                    <h1>
+                    <h3>
                       {this.props.cards[this.state.currentCard].back}
-                    </h1>
+                    </h3>
                   </div>
                   <button onClick={this.previous} disabled={this.state.currentCard <= 0}>Previous card</button>
                   <button onClick={this.cardFlip}>Flip</button>
@@ -183,7 +187,7 @@
           super(props);
           this.state = {
             editor: true,
-            cards: [{front: "Delete this flashcard...", back: "& add your own below!"}]
+            cards: [{front: "Delete this flashcard...", back: "& add your own!"}]
           };
         }
 
