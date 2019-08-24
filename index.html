@@ -214,7 +214,7 @@
 
         componentDidMount() {
           const cards = JSON.parse(localStorage.getItem("cards"));
-          if (cards) {
+          if (cards !== null && cards.length) {
             this.setState ({
               cards
             })
